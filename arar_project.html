@@ -1,0 +1,286 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>السعودية بعيون تقنية — عرعر</title>
+  <meta name="description" content="دليل تعريفي لمدينة عرعر — طبيعـة، حياة فطرية، معالم، معرض، وخريطة تفاعلية." />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg1: #eaf9f1;
+      --bg2: #e8fbff;
+      --muted: #234f45;
+      --accent1: #0ea87a;
+      --accent2: #2fbf8f;
+      --card: rgba(255,255,255,0.92);
+      --glass: rgba(255,255,255,0.65);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0; font-family:'Cairo',system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+      background: linear-gradient(180deg,var(--bg1) 0%, var(--bg2) 60%);
+      color:var(--muted); -webkit-font-smoothing:antialiased;
+      line-height:1.6;
+    }
+
+    /* container */
+    .wrap{max-width:1100px; margin:18px auto; padding:18px}
+
+    /* navbar */
+    nav.top{
+      position:sticky; top:12px; z-index:9999; display:flex; gap:12px; align-items:center; justify-content:space-between;
+      padding:12px 16px; border-radius:12px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.74), rgba(255,255,255,0.64));
+      box-shadow:0 10px 30px rgba(10,40,30,0.06); backdrop-filter: blur(6px);
+    }
+    .brand{display:flex; gap:12px; align-items:center}
+    .logo{
+      width:56px; height:56px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+      font-weight:800; color:white; font-size:18px; background:linear-gradient(135deg,var(--accent1),var(--accent2));
+      box-shadow:0 10px 30px rgba(14,168,122,0.12);
+    }
+    .brand h1{font-size:16px; margin:0}
+    .nav-links{display:flex; gap:8px; align-items:center}
+    .nav-links a{
+      padding:8px 12px; border-radius:10px; text-decoration:none; color:var(--muted); font-weight:700;
+      transition:all .22s ease;
+    }
+    .nav-links a.cta{
+      background:linear-gradient(90deg,var(--accent1),var(--accent2)); color:white;
+      box-shadow:0 8px 30px rgba(47,191,143,0.12);
+    }
+    .nav-links a:hover{transform:translateY(-4px); background:rgba(15,100,70,0.04)}
+
+    /* hero */
+    .hero{display:grid; grid-template-columns:1fr 420px; gap:20px; align-items:center; margin-top:18px}
+    .card{background:var(--card); padding:20px; border-radius:14px; box-shadow:0 10px 30px rgba(20,60,50,0.06); border:1px solid rgba(0,0,0,0.03)}
+    .hero .title{font-size:26px; color:#0b5b44; margin-bottom:8px}
+    .lead{color:#2b6b5e}
+
+    .hero-figure{height:360px; border-radius:12px; overflow:hidden; position:relative}
+    .hero-figure img{width:100%; height:100%; object-fit:cover; display:block}
+    .ribbon{position:absolute; right:14px; top:14px; background:linear-gradient(90deg,#ffef9a,#ffd27a); padding:8px 12px; border-radius:10px; font-weight:800; color:#073}
+
+    /* sections */
+    section{margin-top:18px}
+    .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+    .info h3{color:#114b3a; margin-bottom:8px}
+    p{color:#234f45}
+
+    /* gallery */
+    .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:12px}
+    .gallery img{width:100%; height:170px; object-fit:cover; border-radius:10px; cursor:pointer; border:1px solid rgba(0,0,0,0.04); transition:transform .3s}
+    .gallery img:hover{transform:translateY(-6px) scale(1.03)}
+
+    /* map */
+    .map-wrap{height:360px; border-radius:12px; overflow:hidden; border:1px solid rgba(0,0,0,0.06)}
+
+    /* contact form */
+    form{display:grid; gap:10px}
+    input,textarea{background:transparent; border:1px solid rgba(10,60,45,0.08); padding:12px; border-radius:8px; color:var(--muted); min-height:44px}
+    button{background:linear-gradient(90deg,var(--accent1),var(--accent2)); border:none; padding:12px 16px; border-radius:10px; color:white; font-weight:700; cursor:pointer}
+
+    footer{margin-top:22px; text-align:center; color:#2b6b5e; opacity:0.95; font-size:14px}
+
+    /* responsive */
+    @media(max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      nav.top{flex-direction:column; gap:12px; align-items:stretch}
+    }
+
+    /* small animation */
+    .fade{animation:fadeIn .6s ease both}
+    @keyframes fadeIn{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
+
+    /* active nav highlight */
+    .nav-active{background:linear-gradient(90deg, rgba(14,168,122,0.12), rgba(47,191,143,0.06)); border-radius:8px}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav class="top fade" aria-label="Top Navigation">
+      <div class="brand">
+        <div class="logo">عرعر</div>
+        <div>
+          <h1>السعودية بعيون تقنية</h1>
+          <div style="font-size:12px; color:#3b5a52; opacity:0.9">صفحة تعريفية — مدينة عرعر</div>
+        </div>
+      </div>
+
+      <div class="nav-links" role="menu">
+        <a href="#intro" role="menuitem">مقدمة</a>
+        <a href="#nature" role="menuitem">الطبيعة</a>
+        <a href="#wildlife" role="menuitem">الحياة الفطرية</a>
+        <a href="#gallery" role="menuitem">معرض</a>
+        <a href="#map" role="menuitem">خريطة</a>
+        <a href="#contact" role="menuitem" class="cta">تواصل</a>
+      </div>
+    </nav>
+
+    <!-- hero -->
+    <main class="hero">
+      <div class="card hero-left fade">
+        <div class="title">عرعر — بوابة الشمال السعودي</div>
+        <div class="lead">مدينة عرعر، عاصمة منطقة الحدود الشمالية. هنا صفحة تعريفية موجزة عن طبيعتها، الحياة الفطرية، المحميات، وأبرز المعالم — مع معرض صور وخريطة تفاعلية.</div>
+
+        <div style="margin-top:14px; display:flex; gap:12px; flex-wrap:wrap">
+          <div style="flex:1; min-width:160px">
+            <div style="background:linear-gradient(180deg, rgba(14,168,122,0.08), rgba(47,191,143,0.04)); padding:12px; border-radius:10px">
+              <strong>الموقع:</strong><div>شمال المملكة — منطقة الحدود الشمالية</div>
+            </div>
+          </div>
+          <div style="min-width:160px">
+            <div style="background:linear-gradient(180deg, rgba(14,168,122,0.06), rgba(47,191,143,0.03)); padding:12px; border-radius:10px">
+              <strong>المناخ:</strong><div>صحراوي قاري — شتاء بارد وصيف معتدل-حار</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <aside class="hero-figure card fade" aria-hidden="true">
+        <div class="ribbon">مدينة عرعر</div>
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1400&q=80" alt="عرعر">
+      </aside>
+    </main>
+
+    <!-- intro -->
+    <section id="intro" class="card fade">
+      <h3>مقدمة</h3>
+      <p>عرعر مدينة ربط جغرافي وتجاري في شمال المملكة، قريبة من الحدود العراقية، وتشتهر بطبيعتها الصحراوية وتاريخها المحلي.</p>
+    </section>
+
+    <!-- nature & wildlife -->
+    <section id="nature" class="card fade">
+      <h3>الطبيعة والمناخ</h3>
+      <p>تتميز عرعر بمساحات صحراوية واسعة، سهول وواحات محدودة. الأمطار نادرة وموسمية، والشتاء قد يشهد درجات قريبة من الصفر.</p>
+    </section>
+
+    <section id="wildlife" class="card fade grid-3 info">
+      <div>
+        <h3>الطيور</h3>
+        <p>طيور محلية ومهاجرة — بما فيها السمان وأنواع مائية قرب الواحات أحيانًا.</p>
+      </div>
+      <div>
+        <h3>الثدييات</h3>
+        <p>ثعالب، أرانب برية، وظباء في المحميات القريبة.</p>
+      </div>
+      <div>
+        <h3>محميات</h3>
+        <p>محميات محلية تعمل على حماية المواطن والحد من الصيد الجائر.</p>
+      </div>
+    </section>
+
+    <!-- gallery -->
+    <section id="gallery" class="card fade">
+      <h3>معرض صور — عرعر</h3>
+      <div class="gallery" style="margin-top:12px">
+        <img src="https://images.unsplash.com/photo-1549888834-8e0f0b2b6d18?auto=format&fit=crop&w=1000&q=80" alt="Desert scene" data-full="https://images.unsplash.com/photo-1549888834-8e0f0b2b6d18?auto=format&fit=crop&w=2000&q=80">
+        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="Sunset dunes" data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=2000&q=80">
+        <img src="https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=1000&q=80" alt="Wildlife" data-full="https://images.unsplash.com/photo-1476610182048-b716b8518aae?auto=format&fit=crop&w=2000&q=80">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80" alt="Arar landscape" data-full="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=2000&q=80">
+        <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=1000&q=80" alt="Oasis" data-full="https://images.unsplash.com/photo-1508672019048-805c876b67e2?auto=format&fit=crop&w=2000&q=80">
+        <img src="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=1000&q=80" alt="Local scene" data-full="https://images.unsplash.com/photo-1593642532973-d31b6557fa68?auto=format&fit=crop&w=2000&q=80">
+      </div>
+    </section>
+
+    <!-- map -->
+    <section id="map" class="card fade">
+      <h3>خريطة — موقع عرعر</h3>
+      <div class="map-wrap" style="margin-top:12px">
+        <!-- OpenStreetMap iframe — يمكنك تغيير البُعد أو العرض إذا أحببت -->
+        <iframe width="100%" height="100%" frameborder="0" scrolling="no"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=44.000%2C31.000%2C45.500%2C31.800&layer=mapnik&marker=31.983333%2C41.000000" 
+          style="border:0"></iframe>
+      </div>
+      <p style="margin-top:10px; font-size:14px; color:#225e50">إحداثيات تقريبية: 31.9833° N, 41.0000° E</p>
+    </section>
+
+    <!-- contact -->
+    <section id="contact" class="card fade grid-3" style="align-items:start">
+      <div style="grid-column:span 2">
+        <h3>نموذج تواصل</h3>
+        <p>أرسل لنا سؤالك أو اقتراحك — هذا نموذج تجريبي (لا يرسل فعليًا دون خدمة خلفية).</p>
+        <form onsubmit="event.preventDefault(); alert('شكراً — تم إرسال الرسالة (تجريبي)');">
+          <input required placeholder="اسمك">
+          <input required type="email" placeholder="بريدك الإلكتروني">
+          <textarea required rows="5" placeholder="نص الرسالة"></textarea>
+          <div style="display:flex; gap:10px; justify-content:flex-end">
+            <button type="submit">أرسل</button>
+          </div>
+        </form>
+      </div>
+      <div>
+        <h3>معلومات سريعة</h3>
+        <p>عرعر — مركز إداري لمنطقة الحدود الشمالية، بالقرب من الحدود العراقية، وتتمتع بتراث بدوي وتضاريس صحراوية.</p>
+        <div style="margin-top:12px">
+          <span style="display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#e8fff5,#ddfff9);color:#0a3c30;font-weight:700;margin-left:8px">تراث</span>
+          <span style="display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#e8fff5,#ddfff9);color:#0a3c30;font-weight:700;margin-left:8px">طبيعة</span>
+          <span style="display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg,#e8fff5,#ddfff9);color:#0a3c30;font-weight:700;margin-left:8px">ضيافة</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="fade">
+      <div>المراجع: معلومات عامة + صور تعبيرية من Unsplash</div>
+      <div style="margin-top:8px; font-weight:700">© السعودية بعيون تقنية — عرعر</div>
+    </footer>
+  </div>
+
+  <!-- lightbox + nav active JS -->
+  <script>
+    // ========== lightbox للمعرض ==========
+    document.querySelectorAll('.gallery img').forEach(img=>{
+      img.addEventListener('click', ()=>{
+        const src = img.dataset.full || img.src;
+        const overlay = document.createElement('div');
+        overlay.style.position='fixed';
+        overlay.style.inset=0;
+      
+        overlay.style.display='flex';
+        overlay.style.alignItems='center';
+        overlay.style.justifyContent='center';
+        overlay.style.zIndex=99999;
+        overlay.innerHTML = '<img src="'+src+'" style="max-width:94%; max-height:94%; border-radius:12px; box-shadow:0 40px 120px rgba(0,0,0,0.6)"><button aria-label="إغلاق" style="position:absolute; top:20px; left:20px; padding:10px 12px; border-radius:8px; border:none; cursor:pointer; background:#fff; color:#063; font-weight:800">إغلاق</button>';
+        overlay.querySelector('button').onclick = ()=> overlay.remove();
+        overlay.onclick = (e)=> { if(e.target===overlay) overlay.remove(); }
+        document.body.appendChild(overlay);
+      });
+    });
+
+    // ========== تمييز عنصر الشريط النشط أثناء التمرير ==========
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = Array.from(document.querySelectorAll('section, main'));
+    function setActiveNav(){
+      let fromTop = window.scrollY + 120;
+      let current = sections.find(s => s.offsetTop <= fromTop && (s.offsetTop + s.offsetHeight) > fromTop);
+      if(!current) { navLinks.forEach(a=>a.classList.remove('nav-active')); return; }
+      const id = current.id || 'intro';
+      navLinks.forEach(a=>{
+        a.classList.toggle('nav-active', a.getAttribute('href') === '#'+id);
+      });
+    }
+    window.addEventListener('scroll', setActiveNav);
+    window.addEventListener('load', setActiveNav);
+
+    // smooth scroll offset fix for older browsers (if needed)
+    document.querySelectorAll('.nav-links a').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        // default uses CSS smooth scroll; for exact offset we can adjust
+        const href = a.getAttribute('href');
+        if(!href || !href.startsWith('#')) return;
+        const el = document.querySelector(href);
+        if(!el) return;
+        e.preventDefault();
+        const top = el.getBoundingClientRect().top + window.scrollY - 100;
+        window.scrollTo({top, behavior:'smooth'});
+      });
+    });
+  </script>
+</body>
+</html>
